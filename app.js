@@ -42,7 +42,11 @@ boulderButton.addEventListener('click', () => {
     
 });
 
-
+function removeFace() {
+    shedContainer.classList.remove('face');
+    treeContainer.classList.remove('face');
+    boulderContainer.classList.remove('face');
+}
 
 function handleGuess(correctSpot, userGuess) {
     // reset the styles
@@ -51,9 +55,7 @@ function handleGuess(correctSpot, userGuess) {
     // then add the face class to that element so that the face shows up
     // then if the user guess is correct, increment the correct guesses
     // update the DOM to show this change to the user (including the losses, not tracked directly in state)
-    shedContainer.classList.remove('face');
-    treeContainer.classList.remove('face');
-    boulderContainer.classList.remove('face');
+    removeFace();
     
     totalGuesses++;
     totalEl.textContent = totalGuesses;
@@ -83,9 +85,7 @@ function handleGuess(correctSpot, userGuess) {
 }
 
 resetButton.addEventListener('click', () => {
-    shedContainer.classList.remove('face');
-    treeContainer.classList.remove('face');
-    boulderContainer.classList.remove('face');
+    removeFace();
     correctGuesses = 0;
     totalGuesses = 0;
     incorrectGuesses = 0;
@@ -95,6 +95,7 @@ resetButton.addEventListener('click', () => {
 });
 
 tryAgainButton.addEventListener('click', () => {
+    removeFace();
     treeButton.disabled = false;
     shedButton.disabled = false;
     boulderButton.disabled = false;
