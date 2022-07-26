@@ -3,6 +3,7 @@ const shedButton = document.getElementById('shed-button');
 const treeButton = document.getElementById('tree-button');
 const boulderButton = document.getElementById('boulder-button');
 const resetButton = document.getElementById('reset');
+const tryAgainButton = document.getElementById('try-again');
 
 const shedContainer = document.getElementById('shed-container');
 const treeContainer = document.getElementById('tree-container');
@@ -76,6 +77,9 @@ function handleGuess(correctSpot, userGuess) {
     } else if (correctSpot === hidingPlaces[2]) {
         boulderContainer.classList.add('face');
     }
+    treeButton.disabled = true;
+    shedButton.disabled = true;
+    boulderButton.disabled = true;
 }
 
 resetButton.addEventListener('click', () => {
@@ -88,4 +92,10 @@ resetButton.addEventListener('click', () => {
     totalEl.textContent = 0;
     lossesEl.textContent = 0;
     winsEl.textContent = 0;
+});
+
+tryAgainButton.addEventListener('click', () => {
+    treeButton.disabled = false;
+    shedButton.disabled = false;
+    boulderButton.disabled = false;
 });
